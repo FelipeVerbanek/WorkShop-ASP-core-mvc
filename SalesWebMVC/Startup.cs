@@ -48,6 +48,7 @@ builder.MigrationsAssembly("SalesWebMVC")));
 			//Registra serviço na injeção de depencias.
 			services.AddScoped<SeedingService>();
 			services.AddScoped<SellerService>();
+			services.AddScoped<DepartmentService>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
