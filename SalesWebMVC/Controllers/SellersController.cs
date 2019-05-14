@@ -121,14 +121,11 @@ namespace SalesWebMVC.Controllers
 				_sellerService.Update(seller);
 				return RedirectToAction(nameof(Index));
 			}
-			catch (NotFoundException e)
+			catch (ApplicationException e)
 			{
-				return NotFound();
+				return RedirectToAction(nameof(Error),new { message = e.Message});
 			}
-			catch (DbConcurrencyException e)
-			{
-				return BadRequest();
-			}
+
 		}
 		public IActionResult Error(string message)
 		{
@@ -140,5 +137,6 @@ namespace SalesWebMVC.Controllers
 
 			return View(viewModel);
 		}
+
 	}
 }
